@@ -1,0 +1,259 @@
+<!Doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Bootstrap demo</title>
+    <link rel="stylesheet" href="style.css" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-aFq/bzH65dt+w6FI2ooMVUpc+21e0SRygnTpmBvdBgSdnuTN7QbdgL+OapgHtvPp" crossorigin="anonymous">
+
+    <script type="text/javascript" src="plantWeather.js"></script>
+</head>
+
+<body style="background-color:#C3E0E5;">
+    <!---->
+    <nav class="navbar" style="background-color: #619c64">
+        <div class="container-fluid">
+            <a class="navbar-brand" style="color: #267ad9;"> <b><i>Plant Watering Foresight</i></b></a>
+        </div>
+    </nav>
+    </br>
+    <!---->
+    <div class="container text-center">
+        <div class="row align-items-start">
+            <div class="col">
+                <div class="card" style="width: 18rem;">
+                    //Plant Information
+                    <div class="card-body">
+                        <h5 class="card-title">Plant</h5>
+                        <h6 class="card-subtitle mb-2 text-body-secondary">Name: <span id="name1"></span></h6>
+                        <h6 class="card-subtitle mb-2 text-body-secondary">Scientific: <span id="sciname1"></span></h6>
+                        <h6 class="card-subtitle mb-2 text-body-secondary">Cycle: <span id="cycle1"></span></h6>
+                        <h6 class="card-subtitle mb-2 text-body-secondary">Watering: <span id="water1"></span></h6>
+                        <p class="card-text"></p>
+
+
+
+                    </div>
+                </div>
+            </div>
+            <div class="col-6">
+                <div class="mb-3">
+                    <input class="form-control" type="text" placeholder="Zip Code" id="zipInput"
+                        aria-label="default input example">
+
+                </div>
+                <div class="mb-3">
+                    <input class="form-control" type="text" placeholder="Plant Type" id="plantInput"
+                        aria-label="default input example">
+                </div>
+                <button class="btn btn-primary" onclick="formdata()">Submit</button>
+            </div>
+            <div class="col">
+                <div class="card" style="width: 18rem;">
+                    <div class="card-body">
+                        <h5 class="card-title"> Today <span id="date2"></span></h5>
+                        <h5 class="card-title"> <span id="date1"></span></h5>
+                        <h6 class="card-subtitle mb-2 text-body-secondary">Date: <span id="day0"></span></h6>
+                        <h6 class="card-subtitle mb-2 text-body-secondary">City: <span id="cityName"></span></h6>
+                        <h6 class="card-subtitle mb-2 text-body-secondary">Tempature: <span id="temp0"></span></h6>
+                        <h6 class="card-subtitle mb-2 text-body-secondary">Sky: <span id="sky0"></span></h6>
+                        <h6 class="card-subtitle mb-2 text-body-secondary">Precipitation: <span id="percip0"></span>
+                        </h6>
+                        <h6 class="card-subtitle mb-2 text-body-secondary">Humidity: <span id="humid0"></span></h6>
+                        <p class="card-text"><span id="date1"></span></p>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!---->
+    </br>
+    <div class="container text-center" style="padding-left: 100px;">
+        <div class="row" style="padding-bottom: 10px;">
+            <div class="col">
+                <div class="card" style="width: 18rem;">
+                    <div class="card-body">
+                        <h5 class="card-title"> Tommorrow <span id="date1"></span></h5>
+                        <h6 class="card-subtitle mb-2 text-body-secondary">Date: <span id="day1"></span></h6>
+                        <h6 class="card-subtitle mb-2 text-body-secondary">Max Temp: <span id="maxTemp1"></span></h6>
+                        <h6 class="card-subtitle mb-2 text-body-secondary">Min Temp: <span id="minTemp1"></span></h6>
+                        <h6 class="card-subtitle mb-2 text-body-secondary">Average Temp: <span id="avgTemp1"></span>
+                        </h6>
+                        <h6 class="card-subtitle mb-2 text-body-secondary">Sky: <span id="sky1"></span></h6>
+                        <h6 class="card-subtitle mb-2 text-body-secondary">Rain Chance: <span id="rainChance1"></span>
+                        </h6>
+                        <h6 class="card-subtitle mb-2 text-body-secondary">Daily Rain: <span id="dailyRain1"></span>
+                        </h6>
+                        <h6 class="card-subtitle mb-2 text-body-secondary">Total Precip.: <span
+                                id="totalPrecip1"></span></h6>
+                        <h6 class="card-subtitle mb-2 text-body-secondary">Average Humidity: <span
+                                id="avgHumid1"></span></h6>
+                        <p class="card-text"><span id="date1"></span></p>
+
+                    </div>
+                </div>
+            </div>
+            <div class="col">
+                <div class="card" style="width: 18rem;">
+                    <div class="card-body">
+
+                        <h5 class="card-title"><span id="day2"></span></h5>
+                        <h6 class="card-subtitle mb-2 text-body-secondary">Max Temp: <span id="maxTemp2"></span></h6>
+                        <h6 class="card-subtitle mb-2 text-body-secondary">Min Temp: <span id="minTemp2"></span></h6>
+                        <h6 class="card-subtitle mb-2 text-body-secondary">Average Temp: <span id="avgTemp2"></span>
+                        </h6>
+                        <h6 class="card-subtitle mb-2 text-body-secondary">Sky: <span id="sky2"></span></h6>
+                        <h6 class="card-subtitle mb-2 text-body-secondary">Rain Chance: <span id="rainChance2"></span>
+                        </h6>
+                        <h6 class="card-subtitle mb-2 text-body-secondary">Daily Rain: <span id="dailyRain2"></span>
+                        </h6>
+                        <h6 class="card-subtitle mb-2 text-body-secondary">Total Precip.: <span
+                                id="totalPrecip2"></span></h6>
+                        <h6 class="card-subtitle mb-2 text-body-secondary">Average Humidity: <span
+                                id="avgHumid2"></span></h6>
+                        <p class="card-text"><span id="date2"></span></p>
+
+                    </div>
+                </div>
+            </div>
+            <div class="col">
+                <div class="card" style="width: 18rem;">
+                    <div class="card-body">
+                        <h5 class="card-title"><span id="day3"></span></h5>
+                        <h6 class="card-subtitle mb-2 text-body-secondary">Max Temp: <span id="maxTemp3"></span></h6>
+                        <h6 class="card-subtitle mb-2 text-body-secondary">Min Temp: <span id="minTemp3"></span></h6>
+                        <h6 class="card-subtitle mb-2 text-body-secondary">Average Temp: <span id="avgTemp3"></span>
+                        </h6>
+                        <h6 class="card-subtitle mb-2 text-body-secondary">Sky: <span id="sky3"></span></h6>
+                        <h6 class="card-subtitle mb-2 text-body-secondary">Rain Chance: <span id="rainChance3"></span>
+                        </h6>
+                        <h6 class="card-subtitle mb-2 text-body-secondary">Daily Rain: <span id="dailyRain3"></span>
+                        </h6>
+                        <h6 class="card-subtitle mb-2 text-body-secondary">Total Precip.: <span
+                                id="totalPrecip3"></span></h6>
+                        <h6 class="card-subtitle mb-2 text-body-secondary">Average Humidity: <span
+                                id="avgHumid3"></span></h6>
+                        <p class="card-text"><span id="date3"></span></p>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row" style="padding-bottom: 10px;">
+            <div class="col">
+                <div class="card" style="width: 18rem;">
+                    <div class="card-body">
+                        <h5 class="card-title"><span id="day4"></span></h5>
+                        <h6 class="card-subtitle mb-2 text-body-secondary">Max Temp: <span id="maxTemp4"></span></h6>
+                        <h6 class="card-subtitle mb-2 text-body-secondary">Min Temp: <span id="minTemp4"></span></h6>
+                        <h6 class="card-subtitle mb-2 text-body-secondary">Average Temp: <span id="avgTemp4"></span>
+                        </h6>
+                        <h6 class="card-subtitle mb-2 text-body-secondary">Sky: <span id="sky4"></span></h6>
+                        <h6 class="card-subtitle mb-2 text-body-secondary">Rain Chance: <span id="rainChance4"></span>
+                        </h6>
+                        <h6 class="card-subtitle mb-2 text-body-secondary">Daily Rain: <span id="dailyRain4"></span>
+                        </h6>
+                        <h6 class="card-subtitle mb-2 text-body-secondary">Total Precip.: <span
+                                id="totalPrecip4"></span></h6>
+                        <h6 class="card-subtitle mb-2 text-body-secondary">Average Humidity: <span
+                                id="avgHumid4"></span></h6>
+                        <p class="card-text"><span id="date4"></span></p>
+
+                    </div>
+                </div>
+            </div>
+            <div class="col">
+                <div class="card" style="width: 18rem;">
+                    <div class="card-body">
+                        <h5 class="card-title"><span id="day5"></span></h5>
+                        <h6 class="card-subtitle mb-2 text-body-secondary">Max Temp: <span id="maxTemp5"></span></h6>
+                        <h6 class="card-subtitle mb-2 text-body-secondary">Min Temp: <span id="minTemp5"></span></h6>
+                        <h6 class="card-subtitle mb-2 text-body-secondary">Average Temp: <span id="avgTemp5"></span>
+                        </h6>
+                        <h6 class="card-subtitle mb-2 text-body-secondary">Sky: <span id="sky5"></span></h6>
+                        <h6 class="card-subtitle mb-2 text-body-secondary">Rain Chance: <span id="rainChance5"></span>
+                        </h6>
+                        <h6 class="card-subtitle mb-2 text-body-secondary">Daily Rain: <span id="dailyRain5"></span>
+                        </h6>
+                        <h6 class="card-subtitle mb-2 text-body-secondary">Total Precip.: <span
+                                id="totalPrecip5"></span></h6>
+                        <h6 class="card-subtitle mb-2 text-body-secondary">Average Humidity: <span
+                                id="avgHumid5"></span></h6>
+                        <p class="card-text"><span id="date5"></span></p>
+
+                    </div>
+                </div>
+            </div>
+            <div class="col">
+                <div class="card" style="width: 18rem;">
+                    <div class="card-body">
+                        <h5 class="card-title"><span id="day6"></span></h5>
+                        <h6 class="card-subtitle mb-2 text-body-secondary">Max Temp: <span id="maxTemp6"></span></h6>
+                        <h6 class="card-subtitle mb-2 text-body-secondary">Min Temp: <span id="minTemp6"></span></h6>
+                        <h6 class="card-subtitle mb-2 text-body-secondary">Average Temp: <span id="avgTemp6"></span>
+                        </h6>
+                        <h6 class="card-subtitle mb-2 text-body-secondary">Sky: <span id="sky6"></span></h6>
+                        <h6 class="card-subtitle mb-2 text-body-secondary">Rain Chance: <span id="rainChance6"></span>
+                        </h6>
+                        <h6 class="card-subtitle mb-2 text-body-secondary">Daily Rain: <span id="dailyRain6"></span>
+                        </h6>
+                        <h6 class="card-subtitle mb-2 text-body-secondary">Total Precip.: <span
+                                id="totalPrecip6"></span></h6>
+                        <h6 class="card-subtitle mb-2 text-body-secondary">Average Humidity: <span
+                                id="avgHumid6"></span></h6>
+                        <p class="card-text"><span id="date6"></span></p>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!----> 
+    <div class="container text-center">
+        <div class="row align-items-start">
+            <div class="col">
+                <b>
+                    "Frequente"- 30mm a week <br />
+                    "Average"- 15mm a week <br>
+                    "Minimum"- 7.5mm a week
+                </b>
+            </div>
+            <div class="col-6">
+                <div id="chartContainer" style="height: 300px; width: 100%;"></div>
+            </div>
+            <div class="col">
+                <b>
+                    <span id="waterResults"></span>
+                </b>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function formdata() {
+            //JSON data had mutiple pages so we could only query a select few. 
+            const plantsArr = ["giant hyssop", "giant hyssop", "giant hyssop", "giant hyssop", "hummingbird's mint", "American century plant",
+                "century plant", "century plant", "spineless jade agave", "agave", "century plant", "whale's tongue agave", "Parry's agave",
+                "century plant", "century plant", "coastal agave", "century plant", "century plant", "white snakeroot", "white snakeroot", "floss flower",
+                "floss flower", "chu-lan tree", "chu-lan tree", "Philippine evergreen", "Chinese evegreen"];
+
+            var zip = document.getElementById("zipInput").value;
+            var plantName = document.getElementById("plantInput").value;
+            plantNum = plantsArr.indexOf(plantName)
+            plants(plantNum, zip);
+            weather(zip);
+
+        }
+    </script>
+    <script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-qKXV1j0HvMUeCBQ+QVp7JcfGl760yU08IQ+GpUo5hlbpg51QRiuqHAJz8+BrxE/N"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>
