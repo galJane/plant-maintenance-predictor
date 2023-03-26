@@ -1,7 +1,7 @@
 
 //Fetch data from our Plant Api
 function plants(plantNum, zip) {
-    var apiKey = 'sk-CB0K641f4c6271e9c345';
+    var apiKey = '';
     var num = plantNum;
     //var zipcode = '78204';
 
@@ -23,7 +23,7 @@ function plants(plantNum, zip) {
 
 function weather(zip, water1) {
 
-    var apiKey = '3490d519d7fe4d54885191808232503';
+    var apiKey = '';
     var zipcode = '78204';
     var day = [];
     var maxTemp = [];
