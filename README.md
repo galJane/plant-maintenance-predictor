@@ -1,1 +1,1 @@
-# plant-maintenance-predictor
+# Plant Watering Foresight
